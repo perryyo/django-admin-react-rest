@@ -48,8 +48,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Django Admin View Permission'
-copyright = u'2016, Context Information Security'
+project = u'Django Admin React Rest'
+copyright = u'2017, Lefteris Nikoltsios'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -132,7 +132,7 @@ html_theme = 'default'
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = u'Django Admin View Permission v0.1'
+# html_title = u'Django Admin React Rest v0.1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -232,7 +232,7 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'DjangoAdminViewPermissiondoc'
+htmlhelp_basename = 'DjangoAdminReactRestdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -258,8 +258,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'DjangoAdminViewPermission.tex', u'Django Admin View Permission Documentation',
-     u'Context Information Security', 'manual'),
+    (master_doc, 'DjangoAdminReactREst.tex', u'Django Admin React Rest Documentation',
+     u'Lefteris Nikoltsios', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -294,8 +294,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'djangoadminviewpermission', u'Django Admin View Permission Documentation',
-     [u'Context Information Security'], 1)
+    (master_doc, 'djangoadminreactrest', u'Django Admin React Rest Documentation',
+     [u'Lefteris Nikoltsios'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -309,8 +309,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'DjangoAdminViewPermission', u'Django Admin View Permission Documentation',
-     u'Context Information Security', 'DjangoAdminViewPermission', 'One line description of project.',
+    (master_doc, 'DjangoAdminReactRest', u'Django Admin React Rest Documentation',
+     u'Lefteris Nikoltsios', 'DjangoAdminReactRest', 'One line description of project.',
      'Miscellaneous'),
 ]
 
