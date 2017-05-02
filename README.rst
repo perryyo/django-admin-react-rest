@@ -1,6 +1,6 @@
-================
-Admin React Rest
-================
+======================
+Admin React Rest (WIP)
+======================
 
 Reusable application which replaces the static django admin interface with react.
 
