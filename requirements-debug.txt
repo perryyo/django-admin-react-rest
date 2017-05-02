@@ -1,0 +1,19 @@
+-r requirements.txt
+
+# Style tools
+flake8
+flake8-isort
+
+# Unit-testing
+py>=1.4.29
+pytest-django
+pytest-xdist
+pytest-cov
+coveralls
+parameterized
+model_mommy
+mock
+
+# Docs
+sphinx
+sphinx-autobuild
