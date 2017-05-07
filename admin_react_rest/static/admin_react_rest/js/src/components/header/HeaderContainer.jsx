@@ -24,7 +24,7 @@ class HeaderContainer extends React.Component {
   render() {
     let header = null;
     if (this.state.general.is_popup === false) {
-      header = <Header user={ this.state.user }  />
+      header = <Header user={ this.state.user } general={ this.state.general } />
     }
     return (
       <div>{ header }</div>

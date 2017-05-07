@@ -16,14 +16,14 @@ class Header extends React.Component {
       <Navbar fluid inverse>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">React-Bootstrap</a>
+            <a href={ this.props.general.site_url }>{ this.props.general.site_header }</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
             <Navbar.Text>
-              Welcome, { this.props.user.get('username') }!
+              Welcome, { this.props.user.username }!
             </Navbar.Text>
             { userLinks }
           </Nav>

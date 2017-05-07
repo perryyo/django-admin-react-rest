@@ -22,6 +22,8 @@ class GeneralStore extends ReduceStore {
         return new GeneralModel({
           is_popup: action.general.is_popup,
           opts: action.general.opts,
+          site_header: action.general.site_header,
+          site_url: action.general.site_url
         });
 
       default:
