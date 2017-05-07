@@ -4,6 +4,8 @@ import React from 'react';
 import styles from '../css/App.css';
 import UserActions from '../../actions/UserActions';
 import GeneralActions from '../../actions/GeneralActions';
+import FormActions from '../../actions/FormActions';
+import FormContainer from '../form/FormContainer';
 
 
 class ChangeForm extends React.Component {
@@ -22,6 +24,7 @@ class ChangeForm extends React.Component {
         userlinks: data.user.userlinks,
       });
       GeneralActions.add(data);
+      FormActions.add(data);
     }))
   }
 
@@ -29,7 +32,7 @@ class ChangeForm extends React.Component {
     return (
       <div className="row">
         <div className="col-lg-12">
-          <p>Ti wraia</p>
+          <FormContainer />
         </div>
       </div>
     );

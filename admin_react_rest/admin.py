@@ -99,7 +99,19 @@ class AdminRestModelAdmin(admin.ModelAdmin):
         for key in context_data['adminform']['form']['fields'].keys():
             context_data['adminform']['form']['fields'][key] = \
                 context_data['adminform']['form']['fields'][key].__dict__
-            del context_data['adminform']['form']['fields'][key]['widget']
+            widget = context_data['adminform']['form']['fields'][key]['widget']
+            context_data['adminform']['form']['fields'][key]['widget'] = \
+                context_data['adminform']['form']['fields'][key]['widget'] \
+                    .__dict__
+
+            if 'textarea' in  widget.template_name:
+                context_data['adminform']['form']['fields'][key]['widget'][
+                    'tag'] = 'textarea'
+            if hasattr(widget, 'input_type'):
+                context_data['adminform']['form']['fields'][key]['widget'][
+                    'tag'] = 'input'
+
+            del context_data['adminform']['form']['fields'][key]['validators']
 
         user_short_name = request.user.get_short_name()
         context_data['user'] = {}
