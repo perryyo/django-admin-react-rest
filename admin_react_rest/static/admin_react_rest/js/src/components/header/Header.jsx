@@ -7,12 +7,10 @@ class Header extends React.Component {
     let userLinks = [];
     let counter = 1;
 
-    if (this.props.user.has('userlinks')) {
-      Object.keys(this.props.user.get('userlinks')).map(key => {
-        userLinks.push(<NavItem eventKey={ counter } key={ counter } href={ this.props.user.get('userlinks')[key] }>{ key }</NavItem>)
-        counter += 1;
-      })
-    }
+    Object.keys(this.props.user.userlinks).map(key => {
+      userLinks.push(<NavItem eventKey={ counter } key={ counter } href={ this.props.user.userlinks[key] }>{ key }</NavItem>)
+      counter += 1;
+    })
 
     return (
       <Navbar fluid inverse>

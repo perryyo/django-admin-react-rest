@@ -1,6 +1,9 @@
+'use strict';
+
 import React from 'react';
-import styles from './css/App.css'
-import UserActions from '../actions/UserActions';
+import styles from '../css/App.css';
+import UserActions from '../../actions/UserActions';
+import GeneralActions from '../../actions/GeneralActions';
 
 
 class ChangeForm extends React.Component {
@@ -13,23 +16,21 @@ class ChangeForm extends React.Component {
 		    'Content-Type': 'application/json'
 	    }),
     }).then(response => response.json().then(data => {
+      console.debug(data);
       UserActions.add({
         username: data.user.username,
         userlinks: data.user.userlinks,
       });
+      GeneralActions.add(data);
     }))
   }
 
   render() {
     return (
-      <div className="{ styles.App }">
-        <div className="{ styles.App-header }">
-          <img src="/static/admin_react_rest/img/logo.svg" className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className="row">
+        <div className="col-lg-12">
+          <p>Ti wraia</p>
         </div>
-        <p className="{ styles.App-intro }">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }

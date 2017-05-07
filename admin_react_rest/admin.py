@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import pprint
 import json
+from collections import OrderedDict
+from django.utils.encoding import force_text
 from django.urls import reverse
 from django.template.response import TemplateResponse
 from django.utils.encoding import force_text
@@ -43,8 +45,40 @@ class AdminRestModelAdmin(admin.ModelAdmin):
         change_view = super(AdminRestModelAdmin, self).change_view(
             request, object_id, form_url, extra_context)
         context_data = change_view.context_data
-        del context_data['media']
+
+        opts = context_data['opts']
+        breadcrumb = [
+            ('Home',
+             reverse('admin:index')),
+            (force_text(opts.app_config.verbose_name),
+             reverse('admin:app_list', args=(opts.app_label, ))),
+        ]
+
+        if context_data['has_change_permission']:
+            breadcrumb.append(
+                (force_text(opts.verbose_name_plural).capitalize(),
+                 reverse('admin:%s_%s_changelist' % (
+                     opts.app_label, opts.model_name)))
+            )
+        else:
+            breadcrumb.append(
+                (force_text(opts.verbose_name_plural).capitalize(), )
+            )
+
+        if context_data['add']:
+            breadcrumb.append(
+                ('Add %s' % opts.verbose_name, )
+            )
+        else:
+            breadcrumb.append(
+                (force_text(context_data['original']), None)
+            )
+
         del context_data['opts']
+        context_data['opts'] = {}
+        context_data['opts']['breadcrumb'] = OrderedDict(breadcrumb)
+
+        del context_data['media']
         del context_data['original']
         del context_data['available_apps']
 
