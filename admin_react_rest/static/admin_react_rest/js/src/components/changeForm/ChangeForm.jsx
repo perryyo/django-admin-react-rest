@@ -32,7 +32,16 @@ class ChangeForm extends React.Component {
     return (
       <div className="row">
         <div className="col-lg-12">
-          <FormContainer />
+          <div className="row">
+            <div className="col-lg-12">
+              <h3>{ this.props.general.title }</h3>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-12">
+              <FormContainer />
+            </div>
+          </div>
         </div>
       </div>
     );

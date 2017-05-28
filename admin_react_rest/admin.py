@@ -40,6 +40,7 @@ class AdminRestModelAdmin(admin.ModelAdmin):
                 title=(_('Add %s') if add else _('Change %s')) % force_text(
                     opts.verbose_name),
             )
+
             return self.render_simple_change_form(request, context, add)
 
         change_view = super(AdminRestModelAdmin, self).change_view(
