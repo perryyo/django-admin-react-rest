@@ -1,8 +1,11 @@
 {% extends "admin/base_site.html" %}
-{% load static %}
+{% load static admin_modify %}
 
 {% block content %}
+    {% if save_on_top %}{% block submit_buttons_top %}<div id="change-form-top-submit-row"></div>{% endblock %}{% endif %}
     <div id="change-form-content"></div>
+
+    {% block submit_buttons_bottom %}<div id="change-form-bottom-submit-row"></div>{% endblock %}
 {% endblock %}
 
 {% block extrahead %}

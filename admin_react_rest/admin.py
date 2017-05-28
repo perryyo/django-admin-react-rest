@@ -131,6 +131,28 @@ class AdminRestModelAdmin(admin.ModelAdmin):
                 reverse('admin:password_change')
         context_data['user']['userlinks']['Logout'] = reverse('admin:logout')
 
+        change = context_data['change']
+        is_popup = context_data['is_popup']
+        save_as = context_data['save_as']
+        show_save = context_data.get('show_save', True)
+        show_save_and_continue = context_data.get('show_save_and_continue', True)
+        context_data.update({
+            'show_delete_link': (
+                not is_popup and context_data['has_delete_permission'] and
+                change and context_data.get('show_delete', True)
+            ),
+            'delete_url': reverse('admin:%s_%s_delete' % (
+                opts.app_label, opts.model_name), args=(object_id,)),
+            'show_save_as_new': not is_popup and change and save_as,
+            'show_save_and_add_another': (
+                context_data['has_add_permission'] and not is_popup and
+                (not save_as or context_data['add'])
+            ),
+            'show_save_and_continue': not is_popup and context_data[
+                'has_change_permission'] and show_save_and_continue,
+            'show_save': show_save,
+        })
+
         return JsonResponse(context_data)
 
 

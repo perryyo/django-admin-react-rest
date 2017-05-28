@@ -5,6 +5,7 @@ import styles from '../css/App.css';
 import UserActions from '../../actions/UserActions';
 import GeneralActions from '../../actions/GeneralActions';
 import FormActions from '../../actions/FormActions';
+import SubmitRowActions from '../../actions/SubmitRowActions';
 import FormContainer from '../form/FormContainer';
 
 
@@ -25,6 +26,7 @@ class ChangeForm extends React.Component {
       });
       GeneralActions.add(data);
       FormActions.add(data);
+      SubmitRowActions.add(data);
     }))
   }
 
